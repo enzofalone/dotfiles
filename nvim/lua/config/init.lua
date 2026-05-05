@@ -1,0 +1,5 @@
+require("config.remap")
+require("config.formatting")
+require("config.lazy")
+require("config.settings")
+print("hello from enzo")
