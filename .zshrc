@@ -6,13 +6,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -35,8 +35,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 7
+# Uncomment the following line to change the frequency the auto-updater is run (in days).
+zstyle ':omz:update' frequency 13
+
+# Uncomment the following line to set how old an update must be before it's applied, manually or via the auto-updater (in days).
+# zstyle ':omz:update' cooldown 10
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -77,7 +80,7 @@ zstyle ':omz:update' frequency 7
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,61 +89,32 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
-# updates PATH for the Google Cloud SDK.
-if [ -f '/Users/enzofalone/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/enzofalone/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# enables shell command completion for gcloud.
-if [ -f '/Users/enzofalone/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/enzofalone/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# autocomplete
-# source ~/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-# highlighting
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
-
-########### ALIASES ##########
-
-alias vim='nvim'
-alias vim-config='nvim ~/.config/nvim/init.vim'
-
-# tmux
-tmx() {
-  if [[ "$1" == "ks" ]]; then
-    shift # Remove 'ks' from the arguments
-    tmux kill-session "$@"
-  else
-    tmux "$@"
-  fi
-}
-compdef tmx=tmux
+# alias nvim=/usr/bin/nvim/bin/nvim
