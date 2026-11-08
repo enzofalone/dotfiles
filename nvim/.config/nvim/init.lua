@@ -4,7 +4,7 @@ vim.o.tabstop = 4
 vim.o.relativenumber = true
 vim.o.swapfile = false
 vim.g.mapleader = " "
-vim.o.winborder = 
+vim.o.winborder = "none"
 
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
@@ -25,6 +25,7 @@ vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>')
+
 vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 
 vim.lsp.enable({'lua_ls'})
