@@ -1,0 +1,8 @@
+map ctrl+c copy_or_interrupt
+map ctrl+v paste_from_clipboard
+
+
+# BEGIN_KITTY_THEME
+# Gruvbox Dark
+include current-theme.conf
+# END_KITTY_THEME
