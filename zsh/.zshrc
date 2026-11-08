@@ -83,6 +83,7 @@ zstyle ':omz:update' frequency 13
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zshrc.local
 
 # User configuration
 
@@ -117,7 +118,4 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# alias nvim=/usr/bin/nvim/bin/nvim
 
-# opencode
-export PATH=/home/falone/.opencode/bin:$PATH

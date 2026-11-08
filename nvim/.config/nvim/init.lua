@@ -23,9 +23,11 @@ require "oil".setup()
 
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 
+-- mini.pick
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>')
 
+-- oil.nvim
 vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 
 vim.lsp.enable({'lua_ls'})
