@@ -118,3 +118,6 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # alias nvim=/usr/bin/nvim/bin/nvim
+
+# opencode
+export PATH=/home/falone/.opencode/bin:$PATH
